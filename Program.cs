@@ -14,19 +14,21 @@ namespace XOBoardGame
             {
                 if (i % 2 == 0)
                 {
-                    Console.Write("player1 input : ");
+                    Console.Write($"{gameboarder.player1.Name} input : ");
                     isPlayer1 = true;
                 }
                 else
                 {
-                    Console.WriteLine("player2 input : ");
+                    Console.Write($"{gameboarder.player2.Name} input : ");
                     isPlayer1 = false;
 
                 }
+
                 if (gameboarder.InputValueToBorder(int.Parse(Console.ReadLine()), isPlayer1))
                 {
                     i++;
                 };
+
                 Console.WriteLine();
                 GameBoarder.BoardGameDisplay();
                 if (gameboarder.GameCalulate(isPlayer1))

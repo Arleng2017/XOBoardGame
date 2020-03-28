@@ -32,7 +32,7 @@ namespace XOBoardGame
             }
         }
 
-        bool GameCalulate(bool isPlayer1)
+        bool GameProcessing(bool isPlayer1)
         {
             var haveTheWinner = false;
             if (player1.CheckTheGameEnd() == true || player2.CheckTheGameEnd() == true)
@@ -47,20 +47,21 @@ namespace XOBoardGame
 
         public void GameStart()
         {
-            GameBoarder.BoardGameDisplay();
+            BoardGameDisplay();
             int i = 0;
             do
             {
                 var turn = i % 2 == 0;
                 if (turn.InputValueToBorder(player1, player2)) { i++; };
                 Console.WriteLine();
-                GameBoarder.BoardGameDisplay();
-                if (GameCalulate(i%2==0))
+                BoardGameDisplay();
+                if (GameProcessing(i%2==0))
                 {
+                    Console.WriteLine("Game Over!!!");
                     Console.WriteLine("the winner is " + GetTheWinner().Name);
                     break;
                 };
-            } while (!GameCalulate(i % 2==0) && i < 9);
+            } while (!GameProcessing(i % 2==0) && i < 9);
         }
     }
 }

@@ -39,7 +39,7 @@ namespace XOBoardGame
             int input = int.Parse(Console.ReadLine());
             if (GameBoarder.valueInBoard.ElementAt(input) != "x" && GameBoarder.valueInBoard.ElementAt(input) != "o")
             {
-                player.inputValue(input);
+                player.InputValue(input);
                 GameBoarder.valueInBoard[input] = isPlayer1 ? "x" : "o"; ;
                 return true;
             }

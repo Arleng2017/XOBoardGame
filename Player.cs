@@ -14,7 +14,7 @@ namespace XOBoardGame
             PlayerInput = new List<int>();
         }
 
-        public void inputValue(int input)
+        public void InputValue(int input)
             => PlayerInput.Add(input);
     }
 }

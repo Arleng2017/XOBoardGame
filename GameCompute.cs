@@ -33,5 +33,28 @@ namespace XOBoardGame
             return haveTheWinner;
         }
 
+        public static bool InputValueToBorder(this Player player,bool isPlayer1)
+        {
+            Console.Write($"{player.Name} input : ");
+            int input = int.Parse(Console.ReadLine());
+            if (GameBoarder.valueInBoard.ElementAt(input) != "x" && GameBoarder.valueInBoard.ElementAt(input) != "o")
+            {
+                //if (isPlayer1)
+                //{
+                    player.inputValue(input);
+                //}
+                //else
+                //{
+                //    player2.inputValue(input);
+                //}
+
+                GameBoarder.valueInBoard[input] = isPlayer1 ? "x" : "o"; ;
+                return true;
+            }
+            else
+                return false;
+
+        }
+
     }
 }

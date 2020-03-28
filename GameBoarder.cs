@@ -37,7 +37,7 @@ namespace XOBoardGame
             var haveTheWinner = false;
             if (player1.CheckTheGameEnd() == true || player2.CheckTheGameEnd() == true)
             {
-                theWinner = isPlayer1 ? player1 : player2;
+                theWinner = isPlayer1 ? player2 : player1;
                 haveTheWinner = true;
             }
             return haveTheWinner;
@@ -47,23 +47,12 @@ namespace XOBoardGame
 
         public void GameStart()
         {
-            bool canInputValue;
             GameBoarder.BoardGameDisplay();
             int i = 0;
             do
             {
-                if (i % 2 == 0)
-                {
-                    canInputValue = player1.InputValueToBorder(true);
-                }
-                else
-                {
-                    canInputValue = player2.InputValueToBorder(false);
-
-                }
-                if (canInputValue) { i++; };
-
-
+                var turn = i % 2 == 0;
+                if (turn.InputValueToBorder(player1, player2)) { i++; };
                 Console.WriteLine();
                 GameBoarder.BoardGameDisplay();
                 if (GameCalulate(i%2==0))
@@ -73,6 +62,5 @@ namespace XOBoardGame
                 };
             } while (!GameCalulate(i % 2==0) && i < 9);
         }
-
     }
 }

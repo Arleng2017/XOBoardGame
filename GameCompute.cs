@@ -32,7 +32,7 @@ namespace XOBoardGame
             return haveTheWinner;
         }
 
-        public static bool InputValueToBorder(this bool isPlayer1,  Player player1, Player player2)
+        public static bool InputValueToBoarder(this bool isPlayer1,  Player player1, Player player2)
         {
             Player player = isPlayer1 ? player1 : player2;
             Console.Write($"{player.Name} input : ");

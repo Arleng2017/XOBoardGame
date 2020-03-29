@@ -52,7 +52,7 @@ namespace XOBoardGame
             do
             {
                 var turn = i % 2 == 0;
-                if (turn.InputValueToBorder(player1, player2)) { i++; };
+                if (turn.InputValueToBoarder(player1, player2)) { i++; };
                 Console.WriteLine();
                 BoardGameDisplay();
                 if (GameProcessing(i%2==0))

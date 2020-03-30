@@ -32,19 +32,27 @@ namespace XOBoardGame
             return haveTheWinner;
         }
 
-        public static bool InputValueToBoarder(this bool isPlayer1,  Player player1, Player player2)
+        public static bool InputValueToBoarder(this bool isPlayer1, Player player1, Player player2)
         {
-            Player player = isPlayer1 ? player1 : player2;
-            Console.Write($"{player.Name} input : ");
-            int input = int.Parse(Console.ReadLine());
-            if (GameBoarder.valueInBoard.ElementAt(input) != "x" && GameBoarder.valueInBoard.ElementAt(input) != "o")
+            try
             {
-                player.InputValue(input);
-                GameBoarder.valueInBoard[input] = isPlayer1 ? "x" : "o"; ;
-                return true;
+                Player player = isPlayer1 ? player1 : player2;
+                Console.Write($"{player.Name} input : ");
+                int input = int.Parse(Console.ReadLine());
+                if (GameBoarder.valueInBoard.ElementAt(input) != "x" && GameBoarder.valueInBoard.ElementAt(input) != "o")
+                {
+                    player.InputValue(input);
+                    GameBoarder.valueInBoard[input] = isPlayer1 ? "x" : "o"; ;
+                    return true;
+                }
+                else
+                    return false;
             }
-            else
+            catch
+            {
+                Console.WriteLine("Error...Please input Again!!");
                 return false;
+            }
 
         }
 
